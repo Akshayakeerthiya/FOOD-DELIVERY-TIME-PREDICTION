@@ -1,17 +1,25 @@
-# Food Delivery Time Prediction
+# FOOD DELIVERY TIME PREDICTION
 
-## Project Overview
+## PROJECT OVERVIEW
 
-Machine learning regression project to predict **food delivery time in minutes** using delivery, traffic, weather, vehicle, distance, and delivery-person features.
+A machine learning regression project that predicts **food delivery time in minutes** using delivery distance, traffic, weather, vehicle condition, and delivery-person details.
 
-## Objective
+The trained model is deployed as an interactive **Streamlit web application** where users can enter delivery details and get an estimated delivery time.
+
+## LIVE APPLICATION
+
+**STREAMLIT APP:**
+https://food-delivery-time-prediction-ns6r7mizkh4cnjwrrrkuh3.streamlit.app/
+
+## OBJECTIVE
 
 * Predict food delivery time.
 * Identify important factors affecting delivery duration.
-* Compare regression models.
-* Evaluate and select the best-performing model.
+* Compare different regression models.
+* Evaluate model performance.
+* Deploy the selected model as a web application.
 
-## Dataset
+## DATASET
 
 * **Records:** 41,953
 * **Features:** 20
@@ -19,7 +27,7 @@ Machine learning regression project to predict **food delivery time in minutes**
 * **Problem Type:** Regression
 * **Train/Test Split:** 80% / 20%
 
-### Key Features
+### KEY FEATURES
 
 * Delivery person age and rating
 * Delivery distance
@@ -27,45 +35,41 @@ Machine learning regression project to predict **food delivery time in minutes**
 * Weather conditions
 * Vehicle condition
 * Multiple deliveries
+* Pickup delay
 * Order and pickup time
 * Order type and vehicle type
 * Festival and city
 
-## Project Workflow
+## PROJECT WORKFLOW
 
-`Data Understanding → Data Cleaning → Feature Engineering → EDA → Preprocessing → Model Building → Model Comparison → Overfitting Check → Prediction → Feature Importance`
+`Data Understanding → Data Cleaning → Feature Engineering → EDA → Preprocessing → Model Building → Model Comparison → Overfitting Check → Feature Selection → Prediction → Streamlit Deployment`
 
-## Feature Engineering
+## FEATURE ENGINEERING
 
-* Converted target time to numeric format.
-* Created **Delivery_Distance** from geographical coordinates.
-* Extracted **order hour** and **pickup hour**.
+* Converted delivery time from text to numeric format.
+* Calculated **Delivery_Distance** using geographical coordinates.
+* Extracted order and pickup time features.
+* Created **Pickup_Delay**.
 * Handled missing and inconsistent values.
 * Encoded categorical features.
 
-## Models
+## MODELS EVALUATED
 
 * Linear Regression
 * Random Forest Regressor
 * Gradient Boosting Regressor
-* Fine-Tuned Gradient Boosting
+* Fine-Tuned Gradient Boosting Regressor
 
-## Evaluation Metrics
+## MODEL PERFORMANCE
 
-* **MAE** – Average prediction error in minutes.
-* **RMSE** – Penalizes larger prediction errors.
-* **R²** – Measures explained variance.
-
-## Model Results
-
-| Model                   |        MAE |       RMSE |         R² |
+| MODEL                   |        MAE |       RMSE |         R² |
 | ----------------------- | ---------: | ---------: | ---------: |
 | Linear Regression       |     4.7693 |     6.0311 |     0.5778 |
 | **Random Forest**       | **3.2274** | **4.0859** | **0.8062** |
 | Gradient Boosting       |     3.6687 |     4.6121 |     0.7531 |
 | Tuned Gradient Boosting |     3.6574 |     4.6031 |     0.7541 |
 
-### Final Model
+## SELECTED MODEL
 
 **Random Forest Regressor**
 
@@ -73,16 +77,18 @@ Machine learning regression project to predict **food delivery time in minutes**
 * **RMSE:** 4.0859 minutes
 * **R²:** 0.8062
 
-## Overfitting Check
+The Random Forest model achieved the best test performance among the evaluated models and was selected for deployment.
 
-| Dataset  |    MAE |     R² |
+## OVERFITTING ANALYSIS
+
+| DATASET  |    MAE |     R² |
 | -------- | -----: | -----: |
 | Training | 1.2012 | 0.9736 |
 | Testing  | 3.2274 | 0.8062 |
 
-The difference between training and testing performance indicates **some overfitting**.
+The difference between training and testing performance indicates some overfitting.
 
-## Unseen Data Prediction
+## UNSEEN DATA PREDICTION
 
 ```text
 Actual Time       : 18.00 minutes
@@ -90,7 +96,24 @@ Predicted Time    : 15.24 minutes
 Prediction Error  : 2.76 minutes
 ```
 
-## Key Concepts
+## STREAMLIT DEPLOYMENT
+
+The selected Random Forest model was deployed using **Streamlit**.
+
+The application allows users to provide **8 delivery-related inputs**:
+
+* Delivery Person Rating
+* Multiple Deliveries
+* Delivery Distance
+* Delivery Person Age
+* Vehicle Condition
+* Pickup Delay
+* Road Traffic Density
+* Weather
+
+The application then predicts the estimated food delivery time.
+
+## KEY CONCEPTS
 
 * Regression
 * Data Cleaning
@@ -103,11 +126,14 @@ Prediction Error  : 2.76 minutes
 * Overfitting Analysis
 * Feature Importance
 * Unseen Data Prediction
+* Streamlit Deployment
 
-## Technologies
+## TECHNOLOGIES
 
-**Python | Pandas | NumPy | Matplotlib | Seaborn | Scikit-learn | Google Colab**
+**Python | Pandas | NumPy | Matplotlib | Seaborn | Scikit-learn | Joblib | Streamlit | Google Colab**
 
-## Conclusion
+## CONCLUSION
 
-The project successfully predicts food delivery time using machine learning regression techniques. Among the evaluated models, Random Forest Regressor achieved the best test performance with an R² of 0.8062 and MAE of 3.23 minutes, making it the selected model for prediction.
+The project demonstrates an end-to-end machine learning workflow, from data preprocessing and model comparison to deployment.
+
+The **Random Forest Regressor** achieved an R² of **0.8062** with an MAE of **3.23 minutes** on the test dataset and was deployed as an interactive **Streamlit application**.
